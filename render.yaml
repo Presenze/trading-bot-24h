@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: trading-bot-24h
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: PYTHON_VERSION
+        value: 3.10
+    healthCheckPath: /api/health
+    autoDeploy: true
